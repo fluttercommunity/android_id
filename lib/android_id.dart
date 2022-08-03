@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 
-/// The plugin class for retrieving the device's Android ID.
+/// The plugin class for retrieving the Android ID.
 class AndroidId {
   const AndroidId();
 

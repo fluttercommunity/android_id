@@ -1,15 +1,19 @@
 # android_id
 
-A new Flutter plugin project.
+[![Flutter Community: android_id](https://fluttercommunity.dev/_github/header/android_id)](https://github.com/fluttercommunity/community)
 
-## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+A Flutter plugin for retrieving the Android ID.
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Getting started
 
+* Add to pubspec.yaml
+* Use plugin in your code (see examples of all methods below)
+
+## Usage
+
+```dart
+ static const _androidIdPlugin = AndroidId();
+
+final bool androidId = await _plugin.getId();
+```
