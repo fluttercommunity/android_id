@@ -13,7 +13,7 @@ A Flutter plugin for retrieving the Android ID.
 ## Usage
 
 ```dart
- static const _androidIdPlugin = AndroidId();
+const _androidIdPlugin = AndroidId();
 
 final bool androidId = await _plugin.getId();
 ```
