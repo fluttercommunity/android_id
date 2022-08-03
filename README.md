@@ -2,7 +2,6 @@
 
 [![Flutter Community: android_id](https://fluttercommunity.dev/_github/header/android_id)](https://github.com/fluttercommunity/community)
 
-
 A Flutter plugin for retrieving the Android ID.
 
 ## Getting started
