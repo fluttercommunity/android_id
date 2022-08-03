@@ -1,7 +1,12 @@
-import 'android_id_platform_interface.dart';
+import 'package:flutter/services.dart';
 
+/// The plugin class for retrieving the device's Android ID.
 class AndroidId {
-  Future<String?> getId() {
-    return AndroidIdPlatform.instance.getId();
-  }
+  const AndroidId();
+
+  /// The method channel used to interact with the native platform.
+  static const methodChannel = MethodChannel('android_id');
+
+  /// Calls the native method to retrieve the Android ID.
+  Future<String?> getId() => methodChannel.invokeMethod('getId');
 }

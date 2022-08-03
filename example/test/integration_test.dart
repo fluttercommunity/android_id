@@ -7,19 +7,32 @@
 
 import 'package:android_id_example/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Verify Platform version', (WidgetTester tester) async {
+  const channel = MethodChannel('android_id');
+
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() {
+    channel.setMockMethodCallHandler((MethodCall methodCall) async => '42');
+  });
+
+  tearDown(() {
+    channel.setMockMethodCallHandler(null);
+  });
+
+  testWidgets('Gets and displays Android ID', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
+    await tester.pumpAndSettle();
 
-    // Verify that platform version is retrieved.
+    // Verify that an Android ID is retrieved.
     expect(
-      find.byWidgetPredicate(
-        (Widget widget) =>
-            widget is Text && widget.data!.startsWith('Android ID:'),
-      ),
+      find.byWidgetPredicate((Widget widget) {
+        return widget is Text && widget.data!.startsWith('Android ID: 42');
+      }),
       findsOneWidget,
     );
   });

@@ -14,17 +14,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _androidId = 'Unknown';
-  final _androidIdPlugin = AndroidId();
+  static const _androidIdPlugin = AndroidId();
+
+  var _androidId = 'Unknown';
 
   @override
   void initState() {
     super.initState();
-    initAndroidId();
+    _initAndroidId();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initAndroidId() async {
+  Future<void> _initAndroidId() async {
     String androidId;
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
@@ -52,7 +53,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Android ID: $_androidId\n'),
+          child: Text('Android ID: $_androidId'),
         ),
       ),
     );

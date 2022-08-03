@@ -1,28 +1,22 @@
 import 'package:android_id/android_id.dart';
-import 'package:android_id/android_id_method_channel.dart';
-import 'package:android_id/android_id_platform_interface.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-
-class MockAndroidIdPlatform
-    with MockPlatformInterfaceMixin
-    implements AndroidIdPlatform {
-  @override
-  Future<String?> getId() => Future.value('42');
-}
 
 void main() {
-  final AndroidIdPlatform initialPlatform = AndroidIdPlatform.instance;
+  const plugin = AndroidId();
+  const channel = MethodChannel('android_id');
 
-  test('$MethodChannelAndroidId is the default instance', () {
-    expect(initialPlatform, isInstanceOf<MethodChannelAndroidId>());
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() {
+    channel.setMockMethodCallHandler((MethodCall methodCall) async => '42');
+  });
+
+  tearDown(() {
+    channel.setMockMethodCallHandler(null);
   });
 
   test('getAndroidId', () async {
-    AndroidId androidIdPlugin = AndroidId();
-    MockAndroidIdPlatform fakePlatform = MockAndroidIdPlatform();
-    AndroidIdPlatform.instance = fakePlatform;
-
-    expect(await androidIdPlugin.getId(), '42');
+    expect(await plugin.getId(), '42');
   });
 }
