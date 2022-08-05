@@ -1,6 +1,6 @@
 ## 0.0.3
 
-* Test publishing via GitHub workflows.
+* Improve example
 
 ## 0.0.2
 
