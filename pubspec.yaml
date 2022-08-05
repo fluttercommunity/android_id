@@ -6,7 +6,7 @@ issue_tracker: https://github.com/fluttercommunity/android_id/issues
 
 maintainer: Joachim Nohl (@nohli)
 
-version: 0.0.2
+version: 0.0.3
 
 environment:
   sdk: '>=2.17.0 <3.0.0'
