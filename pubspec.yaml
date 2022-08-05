@@ -1,5 +1,5 @@
 name: android_id
-description: A Flutter plugin for getting the Android ID.
+description: A Flutter plugin for getting the Android ID. Only for Android.
 
 repository: https://github.com/fluttercommunity/android_id
 issue_tracker: https://github.com/fluttercommunity/android_id/issues
