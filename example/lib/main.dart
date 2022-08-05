@@ -40,9 +40,7 @@ class _MyAppState extends State<MyApp> {
     // setState to update our non-existent appearance.
     if (!mounted) return;
 
-    setState(() {
-      _androidId = androidId;
-    });
+    setState(() => _androidId = androidId);
   }
 
   @override
