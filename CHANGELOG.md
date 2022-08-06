@@ -1,6 +1,10 @@
+## 0.0.4
+
+* Small improvements.
+
 ## 0.0.3
 
-* Improve example
+* Improve example.
 
 ## 0.0.2
 
