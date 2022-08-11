@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Documentation typo fix
+
 ## 0.0.4
 
 * Small improvements.
