@@ -1,3 +1,7 @@
+## 0.0.7
+
+* Add Google Play information to README.
+
 ## 0.0.6
 
 * Lower minimal sdk version to `2.12.0`.
