@@ -1,6 +1,10 @@
+## 0.0.6
+
+* Lower minimal sdk version to `2.12.0`.
+
 ## 0.0.5
 
-* Documentation typo fix
+* Documentation typo fix.
 
 ## 0.0.4
 
