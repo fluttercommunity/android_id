@@ -27,4 +27,3 @@ flutter:
       android:
         package: plus.fluttercommunity.dev.android_id
         pluginClass: AndroidIdPlugin
- 
