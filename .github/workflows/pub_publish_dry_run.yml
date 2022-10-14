@@ -8,9 +8,10 @@ on:
 
 jobs:
   publish-dry-run:
+    name: Publish dry run
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Publish dry run
         uses: sakebook/actions-flutter-pub-publisher@v1.3.1
         with:

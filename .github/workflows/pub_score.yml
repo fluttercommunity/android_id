@@ -1,4 +1,4 @@
-name: Check score
+name: Check pub score
 
 on:
   pull_request:
@@ -8,9 +8,10 @@ on:
 
 jobs:
   check-score:
+    name: Check pub score
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: axel-op/dart-package-analyzer@v3
         id: workflow
         with:
