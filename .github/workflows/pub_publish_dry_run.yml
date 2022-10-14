@@ -1,16 +1,16 @@
 name: Publish dry run
 
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
-
   publish-dry-run:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-
       - name: Publish dry run
         uses: sakebook/actions-flutter-pub-publisher@v1.3.1
         with:
