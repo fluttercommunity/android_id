@@ -1,7 +1,6 @@
 name: Publish dry run
 
 on:
-  pull_request:
   push:
     branches:
       - main
