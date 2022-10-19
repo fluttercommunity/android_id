@@ -21,8 +21,8 @@ jobs:
           TOTAL: ${{ steps.workflow.outputs.total }}
           TOTAL_MAX: ${{ steps.workflow.outputs.total_max }}
         run: |
-          PERCENTAGE=$(( $TOTAL * 100 / $TOTAL_MAX ))
-          if (( $PERCENTAGE < 100 ))
+          MISSING_POINTS=$(( $TOTAL_MAX - $TOTAL ))
+          if (( MISSING_POINTS > 0 ))
           then
             echo Score can be improved!
             exit 1
