@@ -1,3 +1,10 @@
+## 0.0.8
+
+* Add more GitHub Actions for checking code quality
+* Update kotlin_version from 1.6.10 to 1.7.20
+* Update gradle from 7.1.2 to 7.3.1
+* Add dependabot
+
 ## 0.0.7
 
 * Add Google Play information to README.
