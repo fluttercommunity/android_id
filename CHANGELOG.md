@@ -1,3 +1,7 @@
+## 0.1.1
+
+* Update example app dependencies
+
 ## 0.1.0
 
 * Rename Android `applicationId`
