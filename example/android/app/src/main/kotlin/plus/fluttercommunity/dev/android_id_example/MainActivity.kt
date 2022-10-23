@@ -1,4 +1,4 @@
-package plus.fluttercommunity.dev.android_id_example
+package dev.fluttercommunity.android_id.example
 
 import io.flutter.embedding.android.FlutterActivity
 

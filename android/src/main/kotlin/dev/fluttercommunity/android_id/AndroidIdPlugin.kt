@@ -1,4 +1,4 @@
-package plus.fluttercommunity.dev.android_id
+package dev.fluttercommunity.android_id
 
 import android.annotation.SuppressLint
 import android.content.ContentResolver

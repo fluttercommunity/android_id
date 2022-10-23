@@ -1,4 +1,4 @@
-group 'plus.fluttercommunity.dev.android_id'
+group 'dev.fluttercommunity.android_id'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -14,7 +14,7 @@ buildscript {
     }
 }
 
-rootProject.allprojects {
+allprojects {
     repositories {
         google()
         mavenCentral()
@@ -43,8 +43,4 @@ android {
     defaultConfig {
         minSdkVersion 16
     }
-}
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

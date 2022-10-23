@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="plus.fluttercommunity.dev.android_id_example">
+    package="dev.fluttercommunity.android_id.example">
    <application
         android:label="android_id_example"
         android:name="${applicationName}"
