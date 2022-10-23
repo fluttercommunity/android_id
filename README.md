@@ -16,7 +16,7 @@ A Flutter plugin for retrieving the Android ID.
 ```dart
 const _androidIdPlugin = AndroidId();
 
-final String androidId = await _androidIdPlugin.getId();
+final String? androidId = await _androidIdPlugin.getId();
 ```
 
 ## Google Play
