@@ -1,3 +1,8 @@
+## 0.1.0
+
+* Rename Android `applicationId`
+* Recreate `android` folder from template
+
 ## 0.0.8
 
 * Add more GitHub Actions for checking code quality
