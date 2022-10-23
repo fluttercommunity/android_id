@@ -14,7 +14,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      
+
   - package-ecosystem: "pub"
     directory: "example"
     schedule:
@@ -24,7 +24,6 @@ updates:
     directory: "android"
     schedule:
       interval: "daily"
-
 
   - package-ecosystem: "gradle"
     directory: "example/android"
