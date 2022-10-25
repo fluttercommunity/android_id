@@ -82,5 +82,27 @@ jobs:
         run: flutter config --no-analytics
       - name: Flutter pub get
         run: flutter pub get
-      - name: Flutter Test
+      - name: Flutter test
         run: flutter test
+
+  test_example:
+    name: Flutter test example
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - name: Disable analytics
+        run: flutter config --no-analytics
+      - name: Flutter pub get
+        run: flutter pub get
+      - name: Flutter test example
+        run: |
+          cd example
+          flutter test
