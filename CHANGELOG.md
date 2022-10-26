@@ -1,3 +1,7 @@
+## 0.1.2
+
+* Add `Flutter test` for example app to workflows
+
 ## 0.1.1+1
 
 * Update readme
