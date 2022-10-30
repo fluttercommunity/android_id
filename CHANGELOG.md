@@ -1,3 +1,8 @@
+## 0.1.3
+
+* Add building of example app to GitHub workflows
+* Remove unneeded code
+
 ## 0.1.2
 
 * Add `Flutter test` for example app to workflows
