@@ -1,3 +1,7 @@
+## 0.1.3+1
+
+* Improve readme: Add explanation for connection of `Android ID` and signing key
+
 ## 0.1.3
 
 * Add building of example app to GitHub workflows
