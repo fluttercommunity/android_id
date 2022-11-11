@@ -42,6 +42,6 @@ For example [here](https://support.google.com/googleplay/android-developer/answe
 <blockquote>
 <b>Persistent identifiers, including Android ID</b>
 
-Use for non-advertising purposes
+Use for non-advertising purposes<br>
 You can use persistent identifiers as long as you have a [privacy policy](https://support.google.com/googleplay/android-developer/answer/9859455) and handle the data in accordance with the [Developer Distribution Agreement](https://play.google.com/about/developer-distribution-agreement.html#use) and all applicable privacy laws in the areas where you make your app available.
 </blockquote>
