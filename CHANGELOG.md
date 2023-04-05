@@ -1,3 +1,11 @@
+## 0.2.0
+
+* Update `Gradle` version
+* Update `Android Gradle plugin` version
+* Update `Kotlin` version
+* Add Gradle wrapper files
+* Update `pubspec.lock` of example (`url: "https://pub.dev"`)
+
 ## 0.1.3+1
 
 * Improve readme: Add explanation for connection of `Android ID` and signing key
