@@ -31,7 +31,7 @@ android {
     // The if-check checks for a property that has been removed since AGP 7.0.0
     // https://developer.android.com/build/releases/past-releases/agp-7-0-0-release-notes#build-cache-removed
     if (!project.hasProperty("android.buildCacheDir")) {
-        namespace = 'dev.fluttercommunity.android_id'
+        namespace 'dev.fluttercommunity.android_id'
     }
 
     compileOptions {
