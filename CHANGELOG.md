@@ -1,3 +1,8 @@
+## 0.3.0
+
+* Add `namespace` for compatibility with Android Gradle Plugin 8
+* Update `Gradle` version
+
 ## 0.2.0
 
 * Update `Gradle` version
