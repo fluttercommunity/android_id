@@ -27,10 +27,7 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 31
 
-    // Only set namespace on compatible versions (Android Gradle plugin >= 7.0.0)
-    // The if-check checks for a property that has been removed since AGP 7.0.0
-    // https://developer.android.com/build/releases/past-releases/agp-7-0-0-release-notes#build-cache-removed
-    if (!project.hasProperty("android.buildCacheDir")) {
+    if (project.android.hasProperty("namespace")) {
         namespace 'dev.fluttercommunity.android_id'
     }
 
