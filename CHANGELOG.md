@@ -1,3 +1,7 @@
+## 0.3.2
+
+* Improve `namespace` fix for `Android Gradle Plugin` versions < 7
+
 ## 0.3.1
 
 * Fix `namespace` for `Android Gradle Plugin` versions < 7
