@@ -1,3 +1,7 @@
+## 0.3.3
+
+* Add topics to pubspec.yaml
+
 ## 0.3.2
 
 * Improve `namespace` fix for `Android Gradle Plugin` versions < 7
