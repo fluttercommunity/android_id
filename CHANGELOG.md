@@ -1,3 +1,7 @@
+## 0.3.4
+
+* Refactor native code
+
 ## 0.3.3
 
 * Add topics to pubspec.yaml
