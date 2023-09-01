@@ -1,6 +1,7 @@
 name: Check pub score
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches:
@@ -12,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
       - uses: axel-op/dart-package-analyzer@v3
         id: workflow
         with:
