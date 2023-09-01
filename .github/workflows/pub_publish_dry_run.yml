@@ -17,5 +17,5 @@ jobs:
       - name: Publish dry run
         uses: k-paxian/dart-package-publisher@v1.6
         with:
-          credentialJson: ${{ secrets.CREDENTIALS }}
+          credentialJson: 'MockCredentialJson'
           dryRunOnly: true
