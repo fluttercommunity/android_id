@@ -1,7 +1,7 @@
 ## 0.3.5
 
 * Maintenance release
-* Update kotlin and gradle versions
+* Update `kotlin` and `gradle`
 
 ## 0.3.4
 
