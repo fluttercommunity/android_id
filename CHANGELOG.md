@@ -1,3 +1,8 @@
+## 0.3.5
+
+* Maintenance release
+* Update kotlin and gradle versions
+
 ## 0.3.4
 
 * Refactor native code
