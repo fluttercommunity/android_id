@@ -1,3 +1,7 @@
+## 0.3.6
+
+* Return `null` on platforms other than Android, instead of throwing an exception
+
 ## 0.3.5
 
 * Maintenance release

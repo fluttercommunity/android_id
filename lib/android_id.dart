@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 /// The plugin class for retrieving the Android ID.
@@ -8,5 +9,10 @@ class AndroidId {
   static const _methodChannel = MethodChannel('android_id');
 
   /// Calls the native method to retrieve the Android ID.
-  Future<String?> getId() => _methodChannel.invokeMethod<String?>('getId');
+  Future<String?> getId() async {
+    final isAndroid = defaultTargetPlatform == TargetPlatform.android;
+    if (!isAndroid) return null;
+
+    return _methodChannel.invokeMethod<String?>('getId');
+  }
 }
