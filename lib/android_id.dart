@@ -10,7 +10,8 @@ class AndroidId {
 
   /// Calls the native method to retrieve the Android ID.
   Future<String?> getId() async {
-    final isAndroid = defaultTargetPlatform == TargetPlatform.android;
+    final isAndroid =
+        !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
     if (!isAndroid) return null;
 
     return _methodChannel.invokeMethod<String?>('getId');
