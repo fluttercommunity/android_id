@@ -1,3 +1,8 @@
+## 0.4.0
+
+* Upgrade Android dependencies (Gradle, AGP, Java, Kotlin)
+* Widen `flutter_lints` constraints
+
 ## 0.3.6
 
 * Return `null` on platforms other than Android, instead of throwing an exception
