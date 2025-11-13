@@ -12,8 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
       - name: Publish dry run
         uses: k-paxian/dart-package-publisher@v1.6
         with:

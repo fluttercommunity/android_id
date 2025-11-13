@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
@@ -31,8 +29,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
@@ -49,8 +45,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
@@ -67,8 +61,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
@@ -85,8 +77,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
