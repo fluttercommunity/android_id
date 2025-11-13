@@ -11,7 +11,7 @@ jobs:
     name: Pub publish dry run
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Publish dry run
         uses: k-paxian/dart-package-publisher@v1.6
         with:
