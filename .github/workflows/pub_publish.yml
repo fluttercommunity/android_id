@@ -9,7 +9,7 @@ jobs:
     name: Pub publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Publish
         uses: k-paxian/dart-package-publisher@v1.6
         with:
