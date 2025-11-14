@@ -1,3 +1,7 @@
+## 0.4.1
+
+* Maintenance release
+
 ## 0.4.0
 
 * Upgrade Android dependencies (Gradle, AGP, Java, Kotlin)
