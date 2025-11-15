@@ -10,6 +10,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import io.flutter.plugin.common.PluginRegistry.Registrar
 
 /** AndroidIdPlugin */
 class AndroidIdPlugin: FlutterPlugin, MethodCallHandler {
@@ -48,5 +49,15 @@ class AndroidIdPlugin: FlutterPlugin, MethodCallHandler {
   @SuppressLint("HardwareIds")
   private fun getAndroidId(): String? {
     return Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
+  }
+
+  companion object {
+    @JvmStatic
+    fun registerWith(registrar: Registrar) {
+      val plugin = AndroidIdPlugin()
+      plugin.contentResolver = registrar.context().contentResolver
+      plugin.channel = MethodChannel(registrar.messenger(), "android_id")
+      plugin.channel.setMethodCallHandler(plugin)
+    }
   }
 }
