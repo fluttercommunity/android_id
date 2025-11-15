@@ -2,14 +2,14 @@ group = "dev.fluttercommunity.android_id"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-    ext.kotlin_version = "2.0.0"
+    ext.kotlin_version = "2.1.0"
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.1.4")
+        classpath("com.android.tools.build:gradle:8.7.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
@@ -29,7 +29,7 @@ android {
         namespace = "dev.fluttercommunity.android_id"
     }
 
-    compileSdk = 34
+    compileSdk = flutter.compileSdkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -46,12 +46,12 @@ android {
     }
 
     defaultConfig {
-        minSdk = 21
+        minSdk = flutter.minSdkVersion
     }
 
     dependencies {
         testImplementation("org.jetbrains.kotlin:kotlin-test")
-        testImplementation("org.mockito:mockito-core:5.12.0")
+        testImplementation("org.mockito:mockito-core:5.20.0")
     }
 
     testOptions {
