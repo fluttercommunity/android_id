@@ -1,6 +1,6 @@
 name: android_id
-description: A Flutter plugin for getting the Android ID. Only for Android.
 
+description: A Flutter plugin for getting the Android ID. Only for Android.
 repository: https://github.com/fluttercommunity/android_id
 issue_tracker: https://github.com/fluttercommunity/android_id/issues
 
@@ -13,18 +13,18 @@ topics:
   - android
   - native
 
-version: 0.4.1
+version: 0.5.0
 
 environment:
-  sdk: '>=2.12.0 <4.0.0'
-  flutter: '>=2.0.0'
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
 dev_dependencies:
-  flutter_lints: ">=2.0.0 <7.0.0"
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
 
