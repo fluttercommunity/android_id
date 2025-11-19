@@ -1,8 +1,7 @@
 ## 0.5.1
 
-* Add comprehensive troubleshooting documentation for `MissingPluginException`
 * Add integration tests to verify plugin functionality across Android API levels
-* Improve README with debugging steps and exception handling examples
+* Expand README with comprehensive troubleshooting guidance and defensive error-handling examples
 
 ## 0.5.0
 
