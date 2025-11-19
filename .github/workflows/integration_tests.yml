@@ -35,7 +35,7 @@ jobs:
       - name: Disable analytics
         run: flutter config --no-analytics
         
-      - name: Enable KVM (for emulator)
+      - name: Enable emulator hardware acceleration (KVM)
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
@@ -47,7 +47,7 @@ jobs:
           cd example
           flutter pub get
           
-      - name: Run integration tests
+      - name: Boot emulator and run integration tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api-level }}
