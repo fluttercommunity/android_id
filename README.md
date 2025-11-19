@@ -97,9 +97,11 @@ If you're experiencing `MissingPluginException`, try these steps in order:
 
 6. **Test on Real Device**: If on emulator, try on a physical Android device
 
-If none of these work, please open an issue with:
-- Flutter version (`flutter --version`)
-- Output of `flutter doctor -v`
-- Your `pubspec.yaml` dependencies
-- Full error stack trace
-- Whether it happens in a fresh project (`flutter create test_app`)
+If none of these work:
+- Search existing GitHub issues for a similar report and add your details there, or open a new issue if you can't find one.
+- Include the following information:
+  - Flutter version (`flutter --version`)
+  - Output of `flutter doctor -v`
+  - Your `pubspec.yaml` dependencies
+  - Full error stack trace
+  - Whether it happens in a fresh project (`flutter create test_app`)
