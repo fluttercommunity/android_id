@@ -11,7 +11,7 @@ jobs:
   integration_test:
     name: Integration test on Android API ${{ matrix.api-level }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     strategy:
       matrix:
         api-level: [24, 26, 28, 30, 32, 34, 35]
