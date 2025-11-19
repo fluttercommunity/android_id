@@ -56,9 +56,3 @@ jobs:
             avdmanager list device
             cd example && flutter test integration_test
           
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: integration-test-results-api-${{ matrix.api-level }}
-          path: example/build/reports/
