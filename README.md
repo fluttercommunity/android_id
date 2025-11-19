@@ -19,6 +19,66 @@ const _androidIdPlugin = AndroidId();
 final String? androidId = await _androidIdPlugin.getId();
 ```
 
+**Note:** `getId()` returns `null` on non-Android platforms (iOS, Web, etc.). On Android, it throws `MissingPluginException` if the plugin is not properly registered.
+
+### Handling MissingPluginException
+
+If you encounter `MissingPluginException` on Android, wrap the call in a try-catch block:
+
+```dart
+import 'package:flutter/services.dart';
+
+String? androidId;
+try {
+  androidId = await _androidIdPlugin.getId();
+} on MissingPluginException {
+  // Plugin is not registered - likely a configuration issue
+  androidId = null;
+} on PlatformException catch (e) {
+  // Failed to get Android ID
+  print('Failed to get Android ID: ${e.message}');
+  androidId = null;
+}
+```
+
+## Troubleshooting
+
+If you're experiencing `MissingPluginException`, try these steps in order:
+
+1. **Full Rebuild**: Stop the app completely and rebuild from scratch
+   ```bash
+   flutter clean
+   flutter pub get
+   flutter run
+   ```
+
+2. **Check Flutter Version**: Ensure you're using Flutter 3.10.0 or higher
+   ```bash
+   flutter --version
+   ```
+
+3. **Verify Android Embedding**: Check `android/app/src/main/.../MainActivity.kt` (or `.java`)
+   - Should import: `io.flutter.embedding.android.FlutterActivity`
+   - Should NOT import: `io.flutter.app.FlutterActivity` (legacy v1 embedding)
+   
+   If using v1 embedding, migrate to v2 following [this guide](https://github.com/flutter/flutter/blob/main/docs/platforms/android/Upgrading-pre-1.12-Android-projects.md)
+
+4. **Check Hot Reload**: Plugin registration happens during cold start. If using hot reload/restart:
+   - Stop the app completely
+   - Run `flutter run` again (not hot restart)
+
+5. **Invalidate Caches**: For Android Studio/IntelliJ:
+   - File → Invalidate Caches → Invalidate and Restart
+
+6. **Test on Real Device**: If on emulator, try on a physical Android device
+
+If none of these work, please open an issue with:
+- Flutter version (`flutter --version`)
+- Output of `flutter doctor -v`
+- Your `pubspec.yaml` dependencies
+- Full error stack trace
+- Whether it happens in a fresh project (`flutter create test_app`)
+
 ## Important
 
 Please note that on `Android 8` and above, the `Android ID` is not unique per device, but also per signing key the app was built with:
