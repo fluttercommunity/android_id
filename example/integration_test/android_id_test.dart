@@ -24,8 +24,7 @@ void main() {
         expect(
           androidId,
           isNotNull,
-          reason:
-              'Android ID should be available on Android devices/emulators',
+          reason: 'Android ID should be available on Android devices/emulators',
         );
 
         // Android ID should be a hex string
