@@ -54,7 +54,7 @@ jobs:
           profile: Nexus 6
           script: |
             cd example
-            flutter test integration_test/android_id_test.dart
+            flutter drive --driver=test_driver/integration_test.dart --target=integration_test/android_id_test.dart
           
       - name: Upload test results
         if: always()
