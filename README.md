@@ -19,27 +19,24 @@ const _androidIdPlugin = AndroidId();
 final String? androidId = await _androidIdPlugin.getId();
 ```
 
-**Note:** `getId()` returns `null` on non-Android platforms (iOS, Web, etc.). On Android, it throws `MissingPluginException` if the plugin is not properly registered.
-
-### Handling MissingPluginException
-
-If you encounter `MissingPluginException` on Android, wrap the call in a try-catch block:
+Optional defensive handling - treats registration/runtime failures as null instead of crashing:
 
 ```dart
-import 'package:flutter/services.dart';
+const _androidIdPlugin = AndroidId();
 
 String? androidId;
 try {
   androidId = await _androidIdPlugin.getId();
 } on MissingPluginException {
-  // Plugin is not registered - likely a configuration issue
+  print('Failed to get Android ID: MissingPluginException');
   androidId = null;
 } on PlatformException catch (e) {
-  // Failed to get Android ID
   print('Failed to get Android ID: ${e.message}');
   androidId = null;
 }
 ```
+
+**Note:** `getId()` returns `null` on non-Android platforms (iOS, Web, etc.). On Android, it throws `MissingPluginException` if the plugin is not properly registered (see more [below](https://pub.dev/packages/android_id#troubleshooting)).
 
 ## Important
 
