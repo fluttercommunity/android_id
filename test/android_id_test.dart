@@ -6,13 +6,14 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   const plugin = AndroidId();
   const channel = MethodChannel('android_id');
+  const mockAndroidId = '42';
 
   TestWidgetsFlutterBinding.ensureInitialized();
   debugDefaultTargetPlatformOverride = TargetPlatform.android;
 
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(channel, (methodCall) async => '42');
+        .setMockMethodCallHandler(channel, (methodCall) async => mockAndroidId);
   });
 
   tearDown(() {
@@ -20,7 +21,7 @@ void main() {
   });
 
   test('getAndroidId', () async {
-    expect(await plugin.getId(), '42');
+    expect(await plugin.getId(), mockAndroidId);
   });
 
   test('returns null on non-Android platforms', () async {
@@ -48,6 +49,6 @@ void main() {
 
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
 
-    expect(await plugin.getId(), '42');
+    expect(await plugin.getId(), mockAndroidId);
   });
 }
