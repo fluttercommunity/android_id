@@ -19,13 +19,6 @@ const _androidIdPlugin = AndroidId();
 final String? androidId = await _androidIdPlugin.getId();
 ```
 
-**Note:** `getId()` returns `null` in the following cases:
-* When running on non-Android platforms (iOS, Web, etc.)
-* When the plugin is not properly registered (e.g., using Flutter v1 embedding)
-* When there are plugin registration issues
-
-If you need to ensure your app is using the v2 embedding, follow the [migration guide](https://github.com/flutter/flutter/blob/main/docs/platforms/android/Upgrading-pre-1.12-Android-projects.md).
-
 ## Important
 
 Please note that on `Android 8` and above, the `Android ID` is not unique per device, but also per signing key the app was built with:

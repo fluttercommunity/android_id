@@ -1,9 +1,3 @@
-## 0.5.1
-
-* Handle `MissingPluginException` gracefully by returning `null` instead of throwing
-  * This fixes issues when the plugin is not properly registered (e.g., legacy v1 embedding)
-  * Users no longer need to wrap `getId()` calls in try-catch blocks
-
 ## 0.5.0
 
 * Breaking: Flutter SDK constraint is now >=3.10.0 (Dart 3-only). Apps on older Flutter versions can’t upgrade.
