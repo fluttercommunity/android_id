@@ -1,3 +1,9 @@
+## 0.5.1
+
+* Add comprehensive troubleshooting documentation for `MissingPluginException`
+* Add integration tests to verify plugin functionality across Android API levels
+* Improve README with debugging steps and exception handling examples
+
 ## 0.5.0
 
 * Breaking: Flutter SDK constraint is now >=3.10.0 (Dart 3-only). Apps on older Flutter versions can’t upgrade.
