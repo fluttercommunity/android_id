@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 30
     strategy:
       matrix:
-        api-level: [24, 26, 28, 30, 32, 34, 36]
+        api-level: [24, 26, 28, 30, 32, 34, 35]
       fail-fast: false
     steps:
       - name: Checkout repository
