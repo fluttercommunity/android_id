@@ -19,7 +19,9 @@ const _androidIdPlugin = AndroidId();
 final String? androidId = await _androidIdPlugin.getId();
 ```
 
-Optional defensive handling - treats registration/runtime failures as null instead of crashing:
+### Optional defensive handling
+
+Treat registration/runtime failures as `null` by wrapping the call in a `try`/`catch`:
 
 ```dart
 const _androidIdPlugin = AndroidId();
