@@ -52,7 +52,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api-level }}
-          arch: x86_64
           profile: ${{ matrix.profile }}
+          arch: x86_64
           script: |
             cd example && flutter test integration_test
