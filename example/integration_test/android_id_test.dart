@@ -61,8 +61,8 @@ void main() {
     testWidgets(
       'getId should work after hot restart',
       (WidgetTester tester) async {
-        // This simulates what happens during development
-        // The plugin should remain registered
+        // This test verifies that the plugin remains registered and functional
+        // after pumping frames. Note: Hot restart cannot be simulated in integration tests.
 
         final id = await androidIdPlugin.getId();
         expect(id, isNotNull);
