@@ -1,4 +1,4 @@
-name: Integration Tests
+name: Integration Tests (Android)
 
 on:
   workflow_dispatch:
