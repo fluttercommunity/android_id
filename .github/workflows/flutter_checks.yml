@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
@@ -28,7 +28,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
@@ -60,7 +60,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
@@ -76,7 +76,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Install Flutter
         uses: subosito/flutter-action@v2
       - name: Disable analytics
