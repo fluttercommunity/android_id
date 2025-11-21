@@ -1,5 +1,8 @@
 name: android_id_example
+
 description: Demonstrates how to use the android_id plugin.
+
+version: 1.0.0+1
 
 publish_to: 'none'
 
