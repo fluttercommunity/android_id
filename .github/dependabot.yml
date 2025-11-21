@@ -25,13 +25,3 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-minor", "version-update:semver-patch"]
-
-  - package-ecosystem: "gradle"
-    directory: "android"
-    schedule:
-      interval: "daily"
-
-  - package-ecosystem: "gradle"
-    directory: "example/android"
-    schedule:
-      interval: "daily"

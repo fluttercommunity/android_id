@@ -15,10 +15,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
       - name: Install Flutter
         uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
       - name: Disable analytics
         run: flutter config --no-analytics
+
       - name: Flutter pub get
         run: flutter pub get
 
@@ -29,12 +35,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
       - name: Install Flutter
         uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
       - name: Disable analytics
         run: flutter config --no-analytics
+
       - name: Flutter pub get
         run: flutter pub get
+
       - name: Check Dart formatting
         run: dart format --line-length 80 --set-exit-if-changed .
 
@@ -45,12 +58,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
       - name: Install Flutter
         uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
       - name: Disable analytics
         run: flutter config --no-analytics
+
       - name: Flutter pub get
         run: flutter pub get
+
       - name: Run Dart analyze
         uses: invertase/github-action-dart-analyzer@v3.0.0
 
@@ -61,12 +81,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
       - name: Install Flutter
         uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
       - name: Disable analytics
         run: flutter config --no-analytics
+
       - name: Flutter pub get
         run: flutter pub get
+
       - name: Flutter test
         run: flutter test
 
@@ -77,14 +104,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
       - name: Install Flutter
         uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
       - name: Disable analytics
         run: flutter config --no-analytics
+
       - name: Flutter pub get
         run: |
           cd example
           flutter pub get
+
       - name: Flutter test example
         run: |
           cd example
