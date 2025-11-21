@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   integration_test:
-    name: Integration test on Android API ${{ matrix.api-level }} - ${{ matrix.profile }}
+    name: Android API ${{ matrix.api-level }} - ${{ matrix.profile }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
