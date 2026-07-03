@@ -1,3 +1,21 @@
+## 0.5.2
+
+* Support Android Gradle Plugin 9 and Flutter's built-in Kotlin mode while keeping
+  AGP 8 and Flutter's temporary `android.builtInKotlin=false` opt-out working.
+* Stop declaring plugin-owned Android Gradle Plugin and Kotlin Gradle Plugin classpaths.
+* Update the example Android app to Android Gradle Plugin 9.1.1.
+* Tested example integration tests with:
+
+  | Flutter | AGP | Kotlin mode |
+  | --- | --- | --- |
+  | 3.44.4 stable | 9.1.1 | Flutter AGP 9 opt-out |
+  | 3.44.0 | 9.1.1 | Flutter AGP 9 opt-out |
+  | 3.41.9 | 8.13.2 | legacy KGP |
+  | 3.35.7 | 8.13.2 | legacy KGP |
+  | 3.32.8 | 8.13.2 | legacy KGP |
+
+* Thanks to @raph5640, @amanvishwakarma96, and @Joschiller for reporting the AGP 9 build problem.
+
 ## 0.5.1
 
 * Add integration tests to verify plugin functionality across Android API levels
