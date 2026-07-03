@@ -14,8 +14,7 @@
   | 3.35.7 | 8.13.2 | legacy KGP |
   | 3.32.8 | 8.13.2 | legacy KGP |
 
-* Thanks to @raph5640, @kururu-abdo, @Joschiller, and @iamnfinity for reporting
-  the AGP 9 build problem.
+* Thanks to @raph5640, @amanvishwakarma96, and @Joschiller for reporting the AGP 9 build problem.
 
 ## 0.5.1
 
