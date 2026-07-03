@@ -10,9 +10,17 @@ allprojects {
 
 apply plugin: "com.android.library"
 
-def agpMajor = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize(".")[0] as int
-if (agpMajor < 9) {
-    apply plugin: "kotlin-android"
+def agpMajor = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0] as int
+boolean hasBuiltInKotlinSupport = agpMajor >= 9
+
+def builtInKotlinProperty = findProperty('android.builtInKotlin')
+boolean isBuiltInKotlinEnabled = builtInKotlinProperty == null ||
+        builtInKotlinProperty.toString().toBoolean()
+
+boolean shouldApplyKotlinGradlePlugin = !hasBuiltInKotlinSupport || !isBuiltInKotlinEnabled
+
+if (shouldApplyKotlinGradlePlugin) {
+    apply plugin: 'kotlin-android'
 }
 
 android {
