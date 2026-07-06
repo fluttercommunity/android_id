@@ -1,3 +1,7 @@
+## 0.5.2+1
+
+* Reorder README sections.
+
 ## 0.5.2
 
 * Support Android Gradle Plugin 9 and Flutter's built-in Kotlin mode while keeping
