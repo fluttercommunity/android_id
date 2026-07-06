@@ -40,23 +40,6 @@ try {
 
 **Note:** `getId()` returns `null` on non-Android platforms (iOS, Web, etc.). On Android, it throws `MissingPluginException` if the plugin is not properly registered (see more [below](https://pub.dev/packages/android_id#troubleshooting)).
 
-## Android build compatibility
-
-`android_id` supports Android Gradle Plugin 9 and Flutter's built-in Kotlin mode.
-It also keeps working with AGP 8 and Flutter's temporary
-`android.builtInKotlin=false` opt-out.
-
-The plugin no longer provides its own Android Gradle Plugin or Kotlin Gradle
-Plugin classpaths. It only applies the Kotlin Gradle Plugin when the host build
-still needs it. This fixes errors such as:
-
-```text
-The 'org.jetbrains.kotlin.android' plugin is no longer required for Kotlin
-support since AGP 9.0.
-```
-
-Most Flutter apps should not need app-code changes.
-
 ## Important
 
 Please note that on `Android 8` and above, the `Android ID` is not unique per device, but also per signing key the app was built with:
@@ -82,6 +65,23 @@ For example [here](https://support.google.com/googleplay/android-developer/answe
 Use for non-advertising purposes<br>
 You can use persistent identifiers as long as you have a [privacy policy](https://support.google.com/googleplay/android-developer/answer/9859455) and handle the data in accordance with the [Developer Distribution Agreement](https://play.google.com/about/developer-distribution-agreement.html#use) and all applicable privacy laws in the areas where you make your app available.
 </blockquote>
+
+## Android build compatibility
+
+`android_id` supports Android Gradle Plugin 9 and Flutter's built-in Kotlin mode.
+It also keeps working with AGP 8 and Flutter's temporary
+`android.builtInKotlin=false` opt-out.
+
+The plugin no longer provides its own Android Gradle Plugin or Kotlin Gradle
+Plugin classpaths. It only applies the Kotlin Gradle Plugin when the host build
+still needs it. This fixes errors such as:
+
+```text
+The 'org.jetbrains.kotlin.android' plugin is no longer required for Kotlin
+support since AGP 9.0.
+```
+
+Most Flutter apps should not need app-code changes.
 
 ## Troubleshooting
 
