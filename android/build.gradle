@@ -23,16 +23,27 @@ if (shouldApplyKotlinGradlePlugin) {
     apply plugin: 'kotlin-android'
 }
 
+// Flutter 3.10 does not expose this extension to plugin library projects.
+def flutterExtension = project.extensions.findByName("flutter")
+def pluginCompileSdk = flutterExtension?.compileSdkVersion ?: 33
+def pluginMinSdk = flutterExtension?.minSdkVersion ?: 16
+
 android {
     if (project.android.hasProperty("namespace")) {
         namespace = "dev.fluttercommunity.android_id"
     }
 
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = pluginCompileSdk
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    if (shouldApplyKotlinGradlePlugin) {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
     }
 
     sourceSets {
@@ -41,7 +52,7 @@ android {
     }
 
     defaultConfig {
-        minSdk = flutter.minSdkVersion
+        minSdk = pluginMinSdk
     }
 
     dependencies {
@@ -62,8 +73,10 @@ android {
     }
 }
 
-kotlin {
-    compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+if (!shouldApplyKotlinGradlePlugin) {
+    kotlin {
+        compilerOptions {
+            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+        }
     }
 }
