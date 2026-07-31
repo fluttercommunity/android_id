@@ -1,3 +1,18 @@
+## 0.5.3
+
+* Restore Flutter 3.10 through 3.29 compatibility by using the legacy Kotlin
+  compiler configuration when the host still provides the Kotlin Gradle Plugin.
+* Declare Kotlin Gradle Plugin 2.2.20 in the example so Flutter does not fall
+  back to an older soon-unsupported Kotlin version.
+* Apply the example app's Kotlin Gradle Plugin only when the host build still
+  needs it, so the same project can be tested with legacy AGP 8 host builds.
+* Add plugin Gradle fallbacks for older Flutter SDKs that do not expose
+  `flutter.compileSdkVersion` to plugin projects.
+* Keep Kotlin JVM target configuration compatible with older supported Flutter
+  SDKs.
+* Clarify that the package supports Flutter 3.10 or newer while its AGP 9
+  example requires Flutter 3.44 or newer.
+
 ## 0.5.2+1
 
 * Reorder README sections.
