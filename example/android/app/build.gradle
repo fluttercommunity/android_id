@@ -1,8 +1,22 @@
 plugins {
     id "com.android.application"
-    // The Flutter Gradle Plugin must be applied after the Android Gradle plugin.
-    id "dev.flutter.flutter-gradle-plugin"
 }
+
+def agpMajor = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0] as int
+boolean hasBuiltInKotlinSupport = agpMajor >= 9
+
+def builtInKotlinProperty = findProperty('android.builtInKotlin')
+boolean isBuiltInKotlinEnabled = builtInKotlinProperty == null ||
+        builtInKotlinProperty.toString().toBoolean()
+
+boolean shouldApplyKotlinGradlePlugin = !hasBuiltInKotlinSupport || !isBuiltInKotlinEnabled
+
+if (shouldApplyKotlinGradlePlugin) {
+    apply plugin: 'org.jetbrains.kotlin.android'
+}
+
+// The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+apply plugin: "dev.flutter.flutter-gradle-plugin"
 
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file("local.properties")
