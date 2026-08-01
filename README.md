@@ -68,17 +68,13 @@ You can use persistent identifiers as long as you have a [privacy policy](https:
 
 ## Android build compatibility
 
-The published package supports Flutter 3.10 or newer. Its Android build works
-with legacy Kotlin Gradle Plugin hosts and with Android Gradle Plugin 9's
-built-in Kotlin support. The repository's AGP 9 example requires Flutter 3.44
-or newer; that example requirement is not the package's minimum Flutter version.
+`android_id` 0.6.0 or newer requires Flutter 3.44 and Android API 24 or newer.
+The plugin does not apply or provide a Kotlin Gradle Plugin; this keeps the
+Android build compatible with Android Gradle Plugin 9's built-in Kotlin support.
+AGP 8 hosts can still build when the host app applies a compatible Kotlin
+Gradle Plugin; `android_id` no longer configures that legacy toolchain.
 
-The compatibility code also keeps working with AGP 8 and Flutter's temporary
-`android.builtInKotlin=false` opt-out.
-
-The plugin no longer provides its own Android Gradle Plugin or Kotlin Gradle
-Plugin classpaths. It only applies the Kotlin Gradle Plugin when the host build
-still needs it. This fixes errors such as:
+This fixes errors such as:
 
 ```text
 The 'org.jetbrains.kotlin.android' plugin is no longer required for Kotlin
