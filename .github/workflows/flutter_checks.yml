@@ -72,7 +72,7 @@ jobs:
         run: flutter pub get
 
       - name: Run Dart analyze
-        uses: invertase/github-action-dart-analyzer@v3.0.0
+        run: dart analyze
 
   test:
     name: Flutter test
