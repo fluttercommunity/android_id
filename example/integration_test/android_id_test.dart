@@ -8,9 +8,7 @@ void main() {
   group('AndroidId Plugin Integration Tests', () {
     const androidIdPlugin = AndroidId();
 
-    testWidgets('getId should not throw MissingPluginException on Android', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('getId should not throw MissingPluginException on Android', (WidgetTester tester) async {
       // This test verifies that the plugin is properly registered
       // and does not throw MissingPluginException when called on Android
 
@@ -21,44 +19,24 @@ void main() {
 
       // On Android, we should get a non-null ID
       // On other platforms, we should get null
-      expect(
-        androidId,
-        isNotNull,
-        reason: 'Android ID should be available on Android devices/emulators',
-      );
+      expect(androidId, isNotNull, reason: 'Android ID should be available on Android devices/emulators');
 
       // Android ID should be a hex string
-      expect(
-        androidId,
-        matches(RegExp(r'^[0-9a-f]+$')),
-        reason: 'Android ID should be a hexadecimal string',
-      );
+      expect(androidId, matches(RegExp(r'^[0-9a-f]+$')), reason: 'Android ID should be a hexadecimal string');
 
       // Android ID should be 16 characters (64-bit hex)
-      expect(
-        androidId?.length,
-        equals(16),
-        reason: 'Android ID should be 16 hex characters (64-bit)',
-      );
+      expect(androidId?.length, equals(16), reason: 'Android ID should be 16 hex characters (64-bit)');
     });
 
-    testWidgets('getId should return consistent value', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('getId should return consistent value', (WidgetTester tester) async {
       // Call getId multiple times and verify it returns the same value
       final id1 = await androidIdPlugin.getId();
       final id2 = await androidIdPlugin.getId();
 
-      expect(
-        id1,
-        equals(id2),
-        reason: 'Android ID should be consistent across multiple calls',
-      );
+      expect(id1, equals(id2), reason: 'Android ID should be consistent across multiple calls');
     });
 
-    testWidgets('getId should work after hot restart', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('getId should work after hot restart', (WidgetTester tester) async {
       // This test verifies that the plugin remains registered and functional
       // after pumping frames. Note: Hot restart cannot be simulated in integration tests.
 
