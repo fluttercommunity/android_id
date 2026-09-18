@@ -21,11 +21,12 @@ void main() {
       // On other platforms, we should get null
       expect(androidId, isNotNull, reason: 'Android ID should be available on Android devices/emulators');
 
-      // Android ID should be a hex string
-      expect(androidId, matches(RegExp(r'^[0-9a-f]+$')), reason: 'Android ID should be a hexadecimal string');
-
-      // Android ID should be 16 characters (64-bit hex)
-      expect(androidId?.length, equals(16), reason: 'Android ID should be 16 hex characters (64-bit)');
+      // Android formats this 64-bit value without leading zeroes.
+      expect(
+        androidId,
+        matches(RegExp(r'^[0-9a-f]{1,16}$')),
+        reason: 'Android ID should be a 64-bit hexadecimal string',
+      );
     });
 
     testWidgets('getId should return consistent value', (WidgetTester tester) async {
