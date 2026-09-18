@@ -1,17 +1,37 @@
 name: Pub publish
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - '[0-9]*.[0-9]*.[0-9]*'
 
 jobs:
-  publish:
-    name: Pub publish
+  verify:
+    name: Verify package
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - name: Checkout repository
+        uses: actions/checkout@v7
 
-      - name: Publish
-        uses: k-paxian/dart-package-publisher@v1.6
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
         with:
-          credentialJson: ${{ secrets.CREDENTIALS }}
+          channel: stable
+          cache: true
+
+      - name: Disable analytics
+        run: flutter config --no-analytics
+
+      - name: Publish dry run
+        run: dart pub publish --dry-run
+
+      - name: Flutter test
+        run: flutter test
+
+  publish:
+    name: Pub publish
+    needs: verify
+    permissions:
+      contents: read
+      id-token: write
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
