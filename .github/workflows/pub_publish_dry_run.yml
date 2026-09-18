@@ -23,8 +23,8 @@ jobs:
       - name: Disable analytics
         run: flutter config --no-analytics
 
-      - name: Flutter pub get
-        run: flutter pub get
-
       - name: Publish dry run
         run: dart pub publish --dry-run
+
+      - name: Flutter test
+        run: flutter test
