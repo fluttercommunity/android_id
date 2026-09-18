@@ -68,11 +68,9 @@ You can use persistent identifiers as long as you have a [privacy policy](https:
 
 ## Android build compatibility
 
-`android_id` 0.6.0 or newer requires Flutter 3.44 and Android API 24 or newer.
-The plugin does not apply or provide a Kotlin Gradle Plugin; this keeps the
-Android build compatible with Android Gradle Plugin 9's built-in Kotlin support.
-AGP 8 hosts can still build when the host app applies a compatible Kotlin
-Gradle Plugin; `android_id` no longer configures that legacy toolchain.
+`android_id` 0.6.0 or newer requires Flutter 3.44, Android Gradle Plugin 9's
+built-in Kotlin support, and Android API 24 or newer. The plugin does not apply
+or provide a separate Kotlin Gradle Plugin.
 
 This fixes errors such as:
 
