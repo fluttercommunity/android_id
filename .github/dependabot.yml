@@ -16,6 +16,6 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "pub"
-    directory: "example"
+    directory: "/example"
     schedule:
       interval: "weekly"
