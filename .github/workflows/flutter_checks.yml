@@ -51,7 +51,7 @@ jobs:
 
       - name: Check Dart formatting
         timeout-minutes: 10
-        run: dart format --page-width 120 --set-exit-if-changed .
+        run: dart format --set-exit-if-changed .
 
   analyze:
     name: Dart analyze
@@ -75,7 +75,7 @@ jobs:
 
       - name: Run Dart analyze
         timeout-minutes: 10
-        uses: invertase/github-action-dart-analyzer@v3.0.0
+        run: dart analyze --fatal-infos
 
   test:
     name: Flutter test
