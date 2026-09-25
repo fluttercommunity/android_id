@@ -11,7 +11,7 @@ jobs:
   build_android:
     name: Build example for Android
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -35,6 +35,7 @@ jobs:
         run: flutter pub get
 
       - name: Flutter build appbundle
+        timeout-minutes: 10
         run: |
           cd example
           flutter build appbundle --release
