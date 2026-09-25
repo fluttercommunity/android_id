@@ -5,12 +5,12 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - '**'
 
 jobs:
   check_pub_dependencies:
     name: Check dependencies
-    timeout-minutes: 10
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -26,12 +26,13 @@ jobs:
         run: flutter config --no-analytics
 
       - name: Flutter pub get
+        timeout-minutes: 10
         run: flutter pub get
 
   check_formatting:
     name: Check formatting
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -49,11 +50,12 @@ jobs:
         run: flutter pub get
 
       - name: Check Dart formatting
+        timeout-minutes: 10
         run: dart format --set-exit-if-changed .
 
   analyze:
     name: Dart analyze
-    timeout-minutes: 10
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -72,12 +74,13 @@ jobs:
         run: flutter pub get
 
       - name: Run Dart analyze
+        timeout-minutes: 10
         run: dart analyze --fatal-infos
 
   test:
     name: Flutter test
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -95,12 +98,13 @@ jobs:
         run: flutter pub get
 
       - name: Flutter test
+        timeout-minutes: 10
         run: flutter test
 
   test_example:
     name: Flutter test example
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -120,6 +124,7 @@ jobs:
           flutter pub get
 
       - name: Flutter test example
+        timeout-minutes: 10
         run: |
           cd example
           flutter test
