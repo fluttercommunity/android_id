@@ -3,9 +3,35 @@ name: Integration Tests (Android)
 on:
   workflow_dispatch:
   pull_request:
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - '.github/dependabot.yml'
+      - '.github/workflows/flutter_build_example.yml'
+      - '.github/workflows/flutter_checks.yml'
+      - '.github/workflows/pub_publish.yml'
+      - '.github/workflows/pub_publish_dry_run.yml'
+      - '.github/workflows/pub_score.yml'
+      - 'analysis_options.yaml'
+      - 'test/**'
+      - 'example/analysis_options.yaml'
+      - 'example/test/**'
   push:
     branches:
-      - main
+      - '**'
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - '.github/dependabot.yml'
+      - '.github/workflows/flutter_build_example.yml'
+      - '.github/workflows/flutter_checks.yml'
+      - '.github/workflows/pub_publish.yml'
+      - '.github/workflows/pub_publish_dry_run.yml'
+      - '.github/workflows/pub_score.yml'
+      - 'analysis_options.yaml'
+      - 'test/**'
+      - 'example/analysis_options.yaml'
+      - 'example/test/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
