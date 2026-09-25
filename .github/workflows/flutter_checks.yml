@@ -49,7 +49,7 @@ jobs:
         run: flutter pub get
 
       - name: Check Dart formatting
-        run: dart format --page-width 120 --set-exit-if-changed .
+        run: dart format --set-exit-if-changed .
 
   analyze:
     name: Dart analyze
