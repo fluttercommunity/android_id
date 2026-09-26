@@ -68,13 +68,11 @@ You can use persistent identifiers as long as you have a [privacy policy](https:
 
 ## Android build compatibility
 
-`android_id` supports Android Gradle Plugin 9 and Flutter's built-in Kotlin mode.
-It also keeps working with AGP 8 and Flutter's temporary
-`android.builtInKotlin=false` opt-out.
+`android_id` 0.6.0 or newer requires Flutter 3.47, Android Gradle Plugin 9's
+built-in Kotlin support, and Android API 24 or newer. The plugin does not apply
+or provide a separate Kotlin Gradle Plugin.
 
-The plugin no longer provides its own Android Gradle Plugin or Kotlin Gradle
-Plugin classpaths. It only applies the Kotlin Gradle Plugin when the host build
-still needs it. This fixes errors such as:
+This fixes errors such as:
 
 ```text
 The 'org.jetbrains.kotlin.android' plugin is no longer required for Kotlin
@@ -94,7 +92,7 @@ If you're experiencing `MissingPluginException`, try these steps in order:
    flutter run
    ```
 
-2. **Check Flutter Version**: Ensure you're using Flutter 3.10.0 or higher
+2. **Check Flutter Version**: Ensure you're using Flutter 3.47.0 or higher
    ```bash
    flutter --version
    ```
