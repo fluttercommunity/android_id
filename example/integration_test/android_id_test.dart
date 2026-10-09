@@ -37,14 +37,13 @@ void main() {
       expect(id1, equals(id2), reason: 'Android ID should be consistent across multiple calls');
     });
 
-    testWidgets('getId should work after hot restart', (WidgetTester tester) async {
-      // This test verifies that the plugin remains registered and functional
-      // after pumping frames. Note: Hot restart cannot be simulated in integration tests.
+    testWidgets('getId remains consistent after frames settle', (WidgetTester tester) async {
+      // Pumping frames verifies repeated calls; this does not simulate hot restart.
 
       final id = await androidIdPlugin.getId();
       expect(id, isNotNull);
 
-      // Pump frames to simulate app lifecycle
+      // Allow scheduled frames to settle
       await tester.pumpAndSettle();
 
       // Should still work

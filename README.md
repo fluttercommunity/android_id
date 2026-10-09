@@ -14,6 +14,8 @@ A Flutter plugin for retrieving the Android ID.
 ## Usage
 
 ```dart
+import 'package:android_id/android_id.dart';
+
 const _androidIdPlugin = AndroidId();
 
 final String? androidId = await _androidIdPlugin.getId();
@@ -24,6 +26,9 @@ final String? androidId = await _androidIdPlugin.getId();
 Treat registration/runtime failures as `null` by wrapping the call in a `try`/`catch`:
 
 ```dart
+import 'package:android_id/android_id.dart';
+import 'package:flutter/services.dart';
+
 const _androidIdPlugin = AndroidId();
 
 String? androidId;
@@ -79,7 +84,12 @@ The 'org.jetbrains.kotlin.android' plugin is no longer required for Kotlin
 support since AGP 9.0.
 ```
 
-Most Flutter apps should not need app-code changes.
+Use Java 17 or newer to build the Android app. Existing apps must use AGP 9
+with `android.builtInKotlin=true` (the AGP 9 default); the temporary
+`android.builtInKotlin=false` opt-out is not supported by this release. Updating
+Flutter alone does not update an existing app's Gradle configuration. See the
+[example Android configuration](example/android) and Flutter's
+[AGP 9 migration guide](https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers).
 
 ## Troubleshooting
 

@@ -1,3 +1,9 @@
+## Unreleased
+
+* Document AGP 9 migration requirements and the Android ID return/error contract.
+* Handle missing plugin registration in the example app.
+* Add native Android lookup, error, and detach tests and expand Dart contract tests.
+
 ## 0.6.0
 
 * **Breaking:** Require Flutter 3.47 and Android API 24 or newer.
