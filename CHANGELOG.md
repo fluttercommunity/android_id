@@ -1,4 +1,4 @@
-## Unreleased
+## 0.6.1
 
 * Document AGP 9 migration requirements and the Android ID return/error contract.
 * Handle missing plugin registration in the example app.
