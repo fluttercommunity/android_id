@@ -1,13 +1,8 @@
 ## 1.0.0
 
-* Publish the first stable release of the Android ID API.
-* Require Flutter 3.47 and Android API 24 or newer. Android builds use AGP 9's
-  built-in Kotlin support; document the host app migration requirements.
-* Document when the Android ID can change, when `getId()` returns `null`, and
-  which registration or lookup failures throw exceptions.
-* Handle missing plugin registration in the example app.
-* Add Android lookup, error, and detach regression tests and expand Dart
-  contract coverage.
+* First stable release.
+* Clarify Android ID lifetime, platform behavior and AGP 9 migration steps.
+* Handle missing plugin registration in the example.
 
 ## 0.6.0
 
