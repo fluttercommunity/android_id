@@ -8,8 +8,21 @@ A Flutter plugin for retrieving the Android ID.
 
 ## Getting started
 
-* Add plugin to pubspec.yaml
-* Use it in your code (see examples of all methods below)
+Add the matching dependency to your `pubspec.yaml`:
+
+**Flutter 3.47+**
+
+```yaml
+dependencies:
+  android_id: ^1.0.0
+```
+
+**Flutter 3.10–<3.47**
+
+```yaml
+dependencies:
+  android_id: ^0.5.2+1
+```
 
 ## Usage
 
