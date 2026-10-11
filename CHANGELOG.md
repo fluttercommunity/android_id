@@ -1,6 +1,5 @@
-## 1.0.0
+## 0.6.1
 
-* First stable release.
 * Clarify Android ID lifetime, platform behavior and AGP 9 migration steps.
 * Handle missing plugin registration in the example.
 

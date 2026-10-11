@@ -14,7 +14,7 @@ Add the matching dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  android_id: ^1.0.0
+  android_id: ^0.6.1
 ```
 
 **Flutter 3.10–<3.47**
