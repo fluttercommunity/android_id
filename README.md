@@ -115,7 +115,7 @@ If you're experiencing `MissingPluginException`, try these steps in order:
    flutter run
    ```
 
-2. **Check Flutter Version**: Ensure you're using Flutter 3.47.0 or higher
+2. **Check Flutter Version**: Ensure your Flutter version matches the dependency version selected above
    ```bash
    flutter --version
    ```
