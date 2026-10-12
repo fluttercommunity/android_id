@@ -6,49 +6,54 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   const plugin = AndroidId();
   const channel = MethodChannel('android_id');
-  const mockAndroidId = '42';
-
-  TestWidgetsFlutterBinding.ensureInitialized();
-  debugDefaultTargetPlatformOverride = TargetPlatform.android;
+  final binding = TestWidgetsFlutterBinding.ensureInitialized();
+  final calls = <MethodCall>[];
 
   setUp(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(channel, (methodCall) async => mockAndroidId);
+    debugDefaultTargetPlatformOverride = TargetPlatform.android;
+    calls.clear();
+    binding.defaultBinaryMessenger.setMockMethodCallHandler(channel, (call) async {
+      calls.add(call);
+      return '42';
+    });
   });
 
   tearDown(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
+    debugDefaultTargetPlatformOverride = null;
+    binding.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
   });
 
-  test('getAndroidId', () async {
-    expect(await plugin.getId(), mockAndroidId);
+  test('getId calls the native lookup', () async {
+    expect(await plugin.getId(), '42');
+    expect(calls.single.method, 'getId');
+    expect(calls.single.arguments, isNull);
   });
 
-  test('returns null on non-Android platforms', () async {
-    addTearDown(() => debugDefaultTargetPlatformOverride = null);
-
-    debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
-
+  test('preserves a null native result', () async {
+    binding.defaultBinaryMessenger.setMockMethodCallHandler(channel, (_) async => null);
     expect(await plugin.getId(), isNull);
-
-    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-
-    expect(await plugin.getId(), isNull);
-
-    debugDefaultTargetPlatformOverride = TargetPlatform.linux;
-
-    expect(await plugin.getId(), isNull);
-
-    debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
-
-    expect(await plugin.getId(), isNull);
-
-    debugDefaultTargetPlatformOverride = TargetPlatform.windows;
-
-    expect(await plugin.getId(), isNull);
-
-    debugDefaultTargetPlatformOverride = TargetPlatform.android;
-
-    expect(await plugin.getId(), mockAndroidId);
   });
+
+  test('preserves a native lookup failure', () async {
+    binding.defaultBinaryMessenger.setMockMethodCallHandler(channel, (_) async {
+      throw PlatformException(code: 'ERROR_GETTING_ID', message: 'Failed to get Android ID');
+    });
+    await expectLater(
+      plugin.getId(),
+      throwsA(isA<PlatformException>().having((error) => error.code, 'code', 'ERROR_GETTING_ID')),
+    );
+  });
+
+  test('reports missing Android registration', () async {
+    binding.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
+    await expectLater(plugin.getId(), throwsA(isA<MissingPluginException>()));
+  });
+
+  for (final platform in TargetPlatform.values.where((platform) => platform != TargetPlatform.android)) {
+    test('returns null without a native call on ${platform.name}', () async {
+      debugDefaultTargetPlatformOverride = platform;
+      expect(await plugin.getId(), isNull);
+      expect(calls, isEmpty);
+    });
+  }
 }

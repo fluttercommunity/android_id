@@ -31,6 +31,8 @@ class _MyAppState extends State<MyApp> {
     // We also handle the message potentially returning null.
     try {
       androidId = await _androidIdPlugin.getId() ?? 'Unknown ID';
+    } on MissingPluginException {
+      androidId = 'Android ID plugin is not registered.';
     } on PlatformException {
       androidId = 'Failed to get Android ID.';
     }
