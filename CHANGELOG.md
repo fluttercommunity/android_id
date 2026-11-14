@@ -1,12 +1,13 @@
 ## 1.0.0
 
-* Declare the existing public API stable; plugin behavior is unchanged.
+* First stable release; no API or behavior changes
 
 ## 0.6.1
 
-* Clarify Android ID lifetime, platform behavior and AGP 9 migration steps.
-* Handle missing plugin registration in the example.
-* Remove Flutter 3.50 deprecations from the example.
+* Document that Android IDs depend on the signing key, Android user and device, and can change after a factory reset or signing-key change
+* Add AGP 9 migration instructions to the README
+* Catch `MissingPluginException` in the example
+* Replace deprecated Material imports with `package:material_ui/material_ui.dart` in the example for Flutter 3.50
 
 ## 0.6.0
 
