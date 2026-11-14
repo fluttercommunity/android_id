@@ -39,4 +39,13 @@ void main() {
       findsOneWidget,
     );
   });
+
+  testWidgets('Shows a registration error when the plugin is missing', (tester) async {
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, (_) async {
+      throw MissingPluginException();
+    });
+    await tester.pumpWidget(const MyApp());
+    await tester.pumpAndSettle();
+    expect(find.text('Android ID: Android ID plugin is not registered.'), findsOneWidget);
+  });
 }

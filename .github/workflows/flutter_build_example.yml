@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: 17
+          java-version: 21
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
@@ -39,3 +39,8 @@ jobs:
         run: |
           cd example
           flutter build appbundle --release
+
+      - name: Run native Android tests
+        run: |
+          cd example/android
+          ./gradlew :android_id:testDebugUnitTest --console=plain

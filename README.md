@@ -8,12 +8,27 @@ A Flutter plugin for retrieving the Android ID.
 
 ## Getting started
 
-* Add plugin to pubspec.yaml
-* Use it in your code (see examples of all methods below)
+Add the matching dependency to your `pubspec.yaml`:
+
+**Flutter 3.47+**
+
+```yaml
+dependencies:
+  android_id: ^0.6.1
+```
+
+**Flutter 3.10–<3.47**
+
+```yaml
+dependencies:
+  android_id: ^0.5.2+1
+```
 
 ## Usage
 
 ```dart
+import 'package:android_id/android_id.dart';
+
 const _androidIdPlugin = AndroidId();
 
 final String? androidId = await _androidIdPlugin.getId();
@@ -24,6 +39,9 @@ final String? androidId = await _androidIdPlugin.getId();
 Treat registration/runtime failures as `null` by wrapping the call in a `try`/`catch`:
 
 ```dart
+import 'package:android_id/android_id.dart';
+import 'package:flutter/services.dart';
+
 const _androidIdPlugin = AndroidId();
 
 String? androidId;
@@ -79,7 +97,12 @@ The 'org.jetbrains.kotlin.android' plugin is no longer required for Kotlin
 support since AGP 9.0.
 ```
 
-Most Flutter apps should not need app-code changes.
+Use Java 17 or newer to build the Android app. Existing apps must use AGP 9
+with `android.builtInKotlin=true` (the AGP 9 default); the temporary
+`android.builtInKotlin=false` opt-out is not supported by this release. Updating
+Flutter alone does not update an existing app's Gradle configuration. See the
+[example Android configuration](example/android) and Flutter's
+[AGP 9 migration guide](https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers).
 
 ## Troubleshooting
 
@@ -92,7 +115,7 @@ If you're experiencing `MissingPluginException`, try these steps in order:
    flutter run
    ```
 
-2. **Check Flutter Version**: Ensure you're using Flutter 3.47.0 or higher
+2. **Check Flutter Version**: Ensure your Flutter version matches the dependency version selected above
    ```bash
    flutter --version
    ```

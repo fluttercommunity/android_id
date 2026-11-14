@@ -1,3 +1,9 @@
+## 0.6.1
+
+* Clarify Android ID lifetime, platform behavior and AGP 9 migration steps.
+* Handle missing plugin registration in the example.
+* Remove Flutter 3.50 deprecations from the example.
+
 ## 0.6.0
 
 * **Breaking:** Require Flutter 3.47 and Android API 24 or newer.
