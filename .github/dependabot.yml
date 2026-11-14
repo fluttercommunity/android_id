@@ -19,3 +19,10 @@ updates:
     directory: "/example"
     schedule:
       interval: "weekly"
+
+  - package-ecosystem: "gradle"
+    directories:
+      - "/android"
+      - "/example/android"
+    schedule:
+      interval: "weekly"
