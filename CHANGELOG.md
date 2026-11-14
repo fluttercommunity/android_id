@@ -1,3 +1,7 @@
+## 1.0.0
+
+* Declare the existing public API stable; plugin behavior is unchanged.
+
 ## 0.6.1
 
 * Clarify Android ID lifetime, platform behavior and AGP 9 migration steps.
