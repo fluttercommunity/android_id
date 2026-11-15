@@ -2,6 +2,10 @@ name: Flutter checks
 
 on:
   workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - '**'
 
 jobs:
   check_pub_dependencies:
